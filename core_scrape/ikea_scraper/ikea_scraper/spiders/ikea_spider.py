@@ -55,7 +55,7 @@ class IkeaProductSpider(scrapy.Spider):
         with open(filename, 'a') as f:
             f.write('URL|{page}\n'.format(page=page))
             for index, product in product_list:
-                f.write('{enum}|{url}\n'.format(enum=index+1, url=product))
+                f.write('{url}\n'.format(url=product))
 
             f.write('\n')
             f.close()

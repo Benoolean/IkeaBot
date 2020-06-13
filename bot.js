@@ -25,17 +25,45 @@ bot.on("message", msg => {
             category_arr = [];
             file.forEach((line, idx) => {
                 if(line.includes("URL")) {
-                    product = (idx + 1) + ":" + line.substring(4);
-                    console.log(product);
+                    category = (idx + 1) + "|" + line.substring(4);
+                    console.log(category);
 
-                    category_arr.append(product);
+                    category_arr.push(category);
                 }
             });
 
-            var category = category_arr[randomInt(0, category_arr.length())];
-            var next_category = category + 1;
+            // getting the category
+            var category_index = randomInt(0, category_arr.length);
+            var category = category_arr[category_index];
+            var next_category = (category_index < category_arr.length - 1) ? category_arr[category_index + 1] : null;
 
-            console.log(category, next_category);
+            // getting the product
+
+            // regex for getting all char before the : char
+            var min_index = category.match(/^[^|]+/);
+
+            // Since there is a space between each category, we remove 2 from the max_index
+            var max_index = (next_category != null) ? next_category.match(/^[^|]+/) - 2 : -1;  
+
+            // resulting product
+            var result_index = randomInt(parseInt(min_index) + 1, (max_index != -1 ? parseInt(max_index) : file.length - 2));
+            
+            // console.log('======');
+            // console.log('DEBUG:');
+            // console.log('Cat: ' + category + ' CatIdx: ' + category_index + ' CatLen: ' + category_arr.length);
+            // console.log('Min: ' + min_index + ' Max: ' + max_index);
+            // console.log('Result: ' + result_index);
+            // console.log('======');
+
+            
+            file.forEach((line, index) => {
+                if (result_index == index) {
+                    console.log(category.match(/[^|]*$/) + "| " + line);
+
+                    msg.channel.send(category.match(/[^|]*$/) + " | " + line);
+                    return;
+                }   
+            });
         }
     }
 });

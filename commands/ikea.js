@@ -45,42 +45,39 @@ module.exports = {
                     console.log(line);
                     
                     // scraping ikea product by URL
-                    let {PythonShell} = require('python-shell')
+                    //var scrape_task = async function () {
+                    let {PythonShell} = require('python-shell');
                     var options = {
                         mode: 'text',
                         args: [line]
-                    }
-                    
+                    };
+
                     PythonShell.run('core_scrape/ikea_product_scraper/product_spider.py', options, function (err) {
                         if (err) 
                             throw err;
-
-                        console.log('Scraping complete');
-                    });
-                    
-                    // format message
-                    message = ':fork_and_knife: A new IKEA product has arrived! Claim it before it is gone! :fork_and_knife:\nCategory: '
-
-                    let data_file = fs.readFile("core_scrape/ikea_product_scraper/crawled/product_data.json", function(err, data) {
-                        if (err) 
-                            throw err; 
                         
-                        // Converting to JSON 
-                        const product_data = JSON.parse(data);
+                        console.log('Scraping complete');
+                        // format message
+                        message = ':fork_and_knife: A new IKEA product has arrived! Claim it before it is gone! :fork_and_knife:\nCategory: '
 
+                        var data_file = fs.readFile("core_scrape/ikea_product_scraper/crawled/product_data.json", function(err, data) {
+                            if (err) 
+                                throw err; 
+                            
+                            // Converting to JSON 
+                            const product_data = JSON.parse(data);
+                        });
+
+                        message = message + category.match(/[^|]*$/);
+
+                        msg.channel.send(message, {files: ['core_scrape/ikea_product_scraper/crawled/product_image.jpg']});
                     });
-
-                    message = message + category.match(/[^|]*$/);
-
-                    msg.channel.send(message, {files: ['core_scrape/ikea_product_scraper/crawled/product_image.jpg']});
-                    return;
+                    //};
                 }   
             });
         }
-        
     }
 }
-
 
 function randomInt(min, max) {
     return Math.floor(Math.random() * (max - min)) + min; //The maximum is exclusive and the minimum is inclusive

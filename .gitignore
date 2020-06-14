@@ -62,3 +62,4 @@ typings/
 
 # python virtualenv
 env/
+config.json

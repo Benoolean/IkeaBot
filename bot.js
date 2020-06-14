@@ -22,7 +22,7 @@ bot.on("ready", () => {
 });
 
 bot.on("message", msg => {
-    if (msg.content == "ikea-admin") {
-        bot.commands.get('ikea-admin').execute(msg);
+    if (msg.content == "ikea") {
+        bot.commands.get('ikea').execute(msg);
     }
 });

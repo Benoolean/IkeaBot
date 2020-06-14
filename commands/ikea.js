@@ -1,5 +1,6 @@
+
 module.exports = {
-    name: 'ikea-admin',
+    name: 'ikea',
     description: 'Gets random product and initialize capture',
     execute(msg) {
         if (msg.author.id === "318439813206376448" || true) {
@@ -38,8 +39,26 @@ module.exports = {
             // console.log('Result: ' + result_index);
             // console.log('======');
 
+            // iterating the file until the result_index. Worst case runtime O(n)
             file.forEach((line, index) => {
                 if (result_index == index) {
+                    console.log(line);
+                    
+                    // scraping ikea product by URL
+                    let {PythonShell} = require('python-shell')
+                    var options = {
+                        mode: 'text',
+                        args: [line]
+                    }
+                    
+                    PythonShell.run('core_scrape/ikea_product_scraper/product_spider.py', options, function (err) {
+                        if (err) 
+                            throw err;
+
+                        console.log('Scraping complete');
+                    });
+                    
+                    // send message
                     msg.channel.send(category.match(/[^|]*$/) + " | " + line);
                     return;
                 }   
@@ -48,6 +67,7 @@ module.exports = {
         
     }
 }
+
 
 function randomInt(min, max) {
     return Math.floor(Math.random() * (max - min)) + min; //The maximum is exclusive and the minimum is inclusive

@@ -1,5 +1,6 @@
 import scrapy
 import sys
+import os
 import requests
 import json
 from twisted.internet import reactor, defer
@@ -8,8 +9,10 @@ from scrapy.utils.log import configure_logging
 
 assert len(sys.argv) > 1
 
-product_url = sys.argv[1]    
+product_url = sys.argv[1]   
+assert(requests.get(product_url).status_code != 404)
 
+path = os.path.dirname(os.path.realpath(sys.argv[0]))
 class IkeaAllProductsSpider(scrapy.Spider):
     name = 'ikea_product'
 
@@ -18,7 +21,6 @@ class IkeaAllProductsSpider(scrapy.Spider):
         yield scrapy.Request(url=product_url, callback=self.parse)
 
     def parse(self, response):
-        filename = 'crawled/ikea_product.txt'
 
         # Getting Product Data
         product_id = response.css('.range-revamp-product-identifier__number::text').get().replace('.', '')
@@ -32,7 +34,7 @@ class IkeaAllProductsSpider(scrapy.Spider):
         req = requests.get(product_image_url, stream=True)
 
         if (req.status_code != 404):
-            filename = 'crawled/product_image.jpg'
+            filename = os.path.join(path, 'crawled/product_image.jpg')
             with open(filename, 'wb') as img_file:
                 img_file.write(req.content)
             
@@ -49,7 +51,7 @@ class IkeaAllProductsSpider(scrapy.Spider):
             'product_image_url': product_image_url
         }
 
-        filename = 'crawled/product_data.json'
+        filename = os.path.join(path, 'crawled/product_data.json')
         with open(filename, 'w') as img_file:
                 img_file.write(json.dumps(product_data))
 

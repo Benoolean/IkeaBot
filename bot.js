@@ -2,8 +2,9 @@ require("dotenv").config();
 
 const fs = require('fs');
 const Discord = require("discord.js");
+const config = require("./config.json");
 const bot = new Discord.Client();
-const TOKEN = process.env.TOKEN;
+const command_prefix = config.prefix;
 
 // Command init
 bot.commands = new Discord.Collection();
@@ -15,14 +16,27 @@ for (const file of commandFiles) {
 	bot.commands.set(command.name, command);
 }
 
-bot.login(TOKEN);
+// bot login with auth token
+bot.login(config.token);
 
+// ready status function
 bot.on("ready", () => {
     console.info('Logged in as' + bot.user.tag + '!');
 });
 
+// messaging center
 bot.on("message", msg => {
-    if (msg.content == "ikea") {
-        bot.commands.get('ikea').execute(msg);
+    if (!msg.content.startsWith(command_prefix) || msg.author.bot) 
+        return;
+
+    if (msg.content.startsWith(command_prefix)){
+        command = msg.content.substring(1).toLowerCase();
+
+        if (command == "start") {
+            bot.commands.get('ikea').execute(msg);
+        }
+        else if (command == "claim") {
+            
+        }
     }
 });

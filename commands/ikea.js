@@ -4,7 +4,7 @@ module.exports = {
     description: 'Gets random product and initialize capture',
     execute(msg) {
         if (msg.author.id === "318439813206376448" || true) {
-            msg.channel.send("Debugging Authenticated for: " + msg.author.username + "#" + msg.author.discriminator);
+            // msg.channel.send("Debugging Authenticated for: " + msg.author.username + "#" + msg.author.discriminator);
 
             var fs = require("fs");
             let file = fs.readFileSync("data/ikea_products.txt", "utf8").split(/\r?\n/);
@@ -58,8 +58,21 @@ module.exports = {
                         console.log('Scraping complete');
                     });
                     
-                    // send message
-                    msg.channel.send(category.match(/[^|]*$/) + " | " + line);
+                    // format message
+                    message = ':fork_and_knife: A new IKEA product has arrived! Claim it before it is gone! :fork_and_knife:\nCategory: '
+
+                    let data_file = fs.readFile("core_scrape/ikea_product_scraper/crawled/product_data.json", function(err, data) {
+                        if (err) 
+                            throw err; 
+                        
+                        // Converting to JSON 
+                        const product_data = JSON.parse(data);
+
+                    });
+
+                    message = message + category.match(/[^|]*$/);
+
+                    msg.channel.send(message, {files: ['core_scrape/ikea_product_scraper/crawled/product_image.jpg']});
                     return;
                 }   
             });

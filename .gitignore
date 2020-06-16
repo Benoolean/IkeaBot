@@ -63,3 +63,4 @@ typings/
 # python virtualenv
 env/
 config.json
+gc-auth.json

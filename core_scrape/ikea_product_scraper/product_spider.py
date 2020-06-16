@@ -44,11 +44,19 @@ class IkeaAllProductsSpider(scrapy.Spider):
             
         # Exporting Product Data
         product_data = {
-            'product_id': product_id,
-            'product_name': product_name,
-            'product_price': product_price,
-            'product_type': product_type,
-            'product_image_url': product_image_url
+            'product_data': {
+                'product_id': product_id,
+                'product_name': product_name,
+                'product_price': product_price,
+                'product_type': product_type,
+                'product_url': product_url,
+                'product_image_url': product_image_url,
+            },
+            'claimed_status': {
+                'claimed': False,
+                'claimed_by': None,
+                'claimed_date': None,
+            }
         }
 
         filename = os.path.join(path, 'crawled/product_data.json')

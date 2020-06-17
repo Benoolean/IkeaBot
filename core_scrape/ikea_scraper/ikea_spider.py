@@ -1,84 +1,92 @@
 import scrapy
 import os
+import logging
 from twisted.internet import reactor, defer
 from scrapy.crawler import CrawlerRunner
-from scrapy.utils.log import configure_logging
+from csv import reader
+from crawled_handler import removeDuplicates
 
-temp_url = []
+categories_csv = 'crawled/ikea_categories.csv'
+products_csv = 'crawled/ikea_products.csv'
 
-class IkeaAllProductsSpider(scrapy.Spider):
-    name = 'ikea_all_products'
+class IkeaCategoriesSpider(scrapy.Spider):
+    name = 'ikea_categories'
 
     def start_requests(self):
-        file_dir = 'crawled/ikea_products.txt'
-        if (os.path.exists(file_dir)): 
-            os.remove(file_dir)
-
-        start_urls = [
-            'https://www.ikea.com/ca/en/cat/products-products/',
+        scrape_urls = [
+            'https://www.ikea.com/ca/en/cat/products-products/'
         ]
 
-        for url in start_urls:
-            self.log('Crawling: %s' % url )
+        for url in scrape_urls:
             yield scrapy.Request(url=url, callback=self.parse)
 
-    def parse(self, response):
-        filename = 'crawled/ikea_all_products.txt'
-        
-        product_list = enumerate(response.css('.vn-accordion__item > ul > li > a::attr(href)').getall())
 
-        with open(filename, 'w') as f:
-            for index, product in product_list:
-                f.write('{enum}|{url}\n'.format(enum=index+1, url=product))
-                temp_url.append(product)
+    def parse(self, response):
+        # creating/overwriting the product list with the columns of both
+        # the product and category files
+        with open(products_csv, 'w') as f:
+            f.write('category,product_url\n')
+            f.close()
+
+        with open(categories_csv, 'w') as f:
+            f.write('category_urls\n')
+            f.close()
+
+        # Appending the category list
+        product_list = enumerate(response.css('.vn-accordion__item > ul > li > a::attr(href)').getall())
+        with open(categories_csv, 'a') as f:
+            for product in product_list:
+                # since product is a tuple (list #, value), product[1] contains
+                # the category URL
+                f.write('{url}?page=99\n'.format(url=product[1]))
 
             f.close()
-        
-        self.log('Saved file %s' % filename)
+
+        print('[CONSOLE]: Crawled categories and exported CSV files')
 
 
-class IkeaProductSpider(scrapy.Spider):
-    name = 'ikea_product'
+class IkeaProductsSpider(scrapy.Spider):
+    name = 'ikea_products'
 
     def start_requests(self):
-        start_urls = temp_url
+        with open(categories_csv) as f:
+            categories_csv_urls = reader(f)
+            # skip the header
+            header = next(categories_csv_urls)
+            
+            if header != None:
+                for url in categories_csv_urls:
+                    # url <list(str)> into str
+                    url = url[0]
+                    yield scrapy.Request(url=url, callback=self.parse)
 
-        for url in start_urls:
-            self.log('Crawling: %s' % url )
-            yield scrapy.Request(url=url, callback=self.parse)
+            f.close()
+
 
     def parse(self, response):
-        page = response.css('title::text').get()
-        filename = 'crawled/ikea_products.txt'
-        product_list = enumerate(response.css('.range-revamp-product-compact > a::attr(href)').getall())
+        category = response.css('title::text').get().replace('- IKEA', '').replace(',', '|').strip()
 
-        with open(filename, 'a') as f:
-            f.write('URL|{page}\n'.format(page=page))
-            for index, product in product_list:
-                f.write('{url}\n'.format(url=product))
+        # Links of all the product with url argument
+        product_list = response.css('.range-revamp-product-compact > a::attr(href)').getall()
 
-            f.write('\n')
+        with open(products_csv, 'a', encoding="utf-8") as f:
+            for url in product_list:
+                f.write('{category},{url}\n'.format(category=category, url=url))
+
             f.close()
-        
-        self.log('Saved file %s' % filename)
+    
+    print('[CONSOLE]: Crawled products and exported CSV files')
 
-def migrateFile():
-    file_dir = 'crawled/ikea_products.txt'
-    if (os.path.exists(file_dir)): 
-        if (os.path.exists('../../../../data/ikea_products.txt')):
-            os.remove('../../../../data/ikea_products.txt')
-            
-        os.rename(file_dir, '../../../../data/ikea_products.txt')
+logging.disable(20) # 20 is infomation logging
 
-configure_logging()
 runner = CrawlerRunner()
-
 @defer.inlineCallbacks
 def crawl():
-    yield runner.crawl(IkeaAllProductsSpider)
-    yield runner.crawl(IkeaProductSpider)
+    yield runner.crawl(IkeaCategoriesSpider)
+    yield runner.crawl(IkeaProductsSpider)
     reactor.stop()
 
 crawl()
-reactor.run()
-migrateFile()
+reactor.run() # the script will block here until the last crawl call is finished
+
+# Executed after spiders are done crawling

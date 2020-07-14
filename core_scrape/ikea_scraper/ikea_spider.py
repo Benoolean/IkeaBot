@@ -1,6 +1,7 @@
 import scrapy
 import os
 import logging
+import pandas as pd
 from twisted.internet import reactor, defer
 from scrapy.crawler import CrawlerRunner
 from csv import reader
@@ -24,30 +25,22 @@ class IkeaCategoriesSpider(scrapy.Spider):
     def parse(self, response):
         # creating/overwriting the product list with the columns of both
         # the product and category files
-        with open(products_csv, 'w') as f:
-            f.write('category,product_url\n')
-            f.close()
+        ikea_category_df_schema_data = {
+            'category-id': [],
+            'category_url': ''
+        }
+        
+        ikea_category_df = pd.DataFrame(data=ikea_category_df_schema_data, dtype=str)
+        category_list = enumerate(response.css('.vn-accordion__item > ul > li > a::attr(href)').getall())
 
-        with open(categories_csv, 'w') as f:
-            f.write('category,category_id\n')
-            f.close()
-
-        # Appending the category list
-        product_list = enumerate(response.css('.vn-accordion__item > ul > li > a::attr(href)').getall())
-        with open(categories_csv, 'a') as f:
-            for product in product_list:
-                # since product is a tuple (list #, value), product[1] contains
-                # the category URL
-                
-                category_url = product[1].strip('/').split('/')[-1]
-                category_id = category_url.split('-')[-1]
-
-                category_name = ' '.join(category_url.split('-')[:-1])
-
-                f.write('{name},{id}\n'.format(name=category_name, id=category_id))
-
-
-            f.close()
+        for index, category_url in category_list:
+            # Getting the last array element in the stripped URL
+            # .strip('/') removes the trailing / in the URL
+            category_id = category_url.strip('/').split('-')[-1]
+            ikea_category_df.loc[index] = [category_id, category_url]
+        
+        print(ikea_category_df)
+        ikea_category_df.to_csv(categories_csv, encoding='utf-8', index=False)
 
         print('[CONSOLE]: Crawled categories and exported CSV files')
 
@@ -90,7 +83,7 @@ runner = CrawlerRunner()
 @defer.inlineCallbacks
 def crawl():
     yield runner.crawl(IkeaCategoriesSpider)
-    yield runner.crawl(IkeaProductsSpider)
+    # yield runner.crawl(IkeaProductsSpider)
     reactor.stop()
 
 crawl()

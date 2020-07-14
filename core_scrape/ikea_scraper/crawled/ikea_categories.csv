@@ -1,172 +1,156 @@
-category,category_id
-armchairs chaise lounges,fu006
-sofas,fu003
-armoires wardrobes,19053
-bookcases shelving units,st002
-tv media furniture,10475
-dressers storage drawers,st004
-sideboards buffets sofa tables,30454
-display storage cabinets,st003
-beds,bm003
-tables desks,fu004
-bar furniture,16244
-cafe furniture,19141
-chairs,fu002
-outdoor furniture,od003
-kids furniture,18767
-kitchen islands carts,fu005
-room dividers,46080
-nursery furniture,45780
-outdoor furniture,od003
-outdoor organizing,21958
-grills,24898
-outdoor flooring,21957
-outdoor pots plants,31787
-outdoor cushions,17893
-outdoor rugs,34204
-umbrellas gazebos,17887
-outdoor lighting,17897
-outdoor accessories,34203
-decorative lighting,14971
-grills,24898
-picnic outdoor recreation,42924
-summer decoration,47432
-summer party,47429
-summer textiles,47431
-mattresses,bm002
-beds,bm003
-mattress bases,24825
-nightstands,20656
-headboards,19064
-bed slats,24827
-under bed storage,19059
-bedding,tl004
-bed legs,24822
-sink cabinets,20719
-showers,40690
-bathroom sinks,20723
-faucets,20724
-bathroom mirrors,20490
-bathroom accessories,10555
-bathroom lighting,10736
-bathroom storage,20802
-bathroom furniture sets,46079
-bathroom textiles,tl003
-bathroom stools benches,20859
-appliances,ka002
-kitchen cabinets fronts,24254
-kitchen interior organizers,24255
-kitchen countertops,24264
-kitchen faucets sinks,24261
-modular kitchens,22957
-kitchen islands carts,10471
-knobs handles,16298
-kitchen lighting,16282
-wall storage,20676
-backsplashes wall panels,19121
-pantry,16200
-baby,bc002
-kids,bc003
-child safety,16257
-cookware,kt003
-cooking baking supplies,kt002
-knives chopping boards,15934
-dinnerware,18860
-serveware,16043
-cutlery,18865
-drinkware,18868
-coffee tea,16044
-food storage organizing,15937
-dishwashing accessories,15938
-kitchen textiles,18850
-napkins napkin holders,20560
-table linen,20538
-kids kitchenware tableware,18714
-led light bulbs,10744
-smart lighting,36812
-decorative lighting,14971
-integrated lighting,16280
-outdoor lighting,17897
-light fixtures lamps,li002
-bookcases shelving units,st002
-armoires wardrobes,19053
-clothes organizers,st005
-clothes organizers,st005
-dressers storage drawers,st004
-kitchen islands carts,fu005
-sideboards buffets sofa tables,30454
-small storage,st007
-tv media furniture,10475
-wall organization,st006
-display storage cabinets,st003
-storage solution systems,46052
-moving supplies,46078
-bags,16248
-blankets throws,20528
-baby textiles,18690
-kids textiles,18730
-bedding,tl004
-cushions cushions covers,10659
-bathroom textiles,tl003
-curtains blinds,tl002
-fabrics sewing,10655
-kitchen textiles,18850
-table linen,20538
-outdoor cushions,17893
-candle holders candles,10760
-home fragrance,42926
-clocks,10759
-wall decor,10757
-decorative accessories,24924
-mirrors,20489
-vases bowls,10769
-plants flowers,pp003
-flower pots stands,pp004
-paper shop,25227
-storage boxes baskets,10550
-noticeboards,10574
-cats,39569
-dogs,39570
-rugs,10653
-bath mats,20519
-door mats,10698
-outdoor flooring,21957
-smart home,he002
-appliances,ka002
-cords chargers,40845
-speakers,40842
-mobile tablet accessories,40843
-flower pots stands,pp004
-plants flowers,pp003
-plant stands movers,20494
-watering cans,20493
-growing accessories,24887
-laundry baskets,20601
-ironing boards,20608
-drying racks,20602
-bins bags,16213
-cleaning accessories,20609
-dishwashing accessories,15938
-snacks on the go,46192
-meat,25217
-fish seafood,25214
-vegetables side dishes,25213
-bread dairy,25212
-pastries desserts cookies,25215
-sauces jam condiments,25216
-chocolates sweets,25218
-beverages,25211
-knobs handles,16298
-oils stains product care,42948
-outdoor flooring,21957
-acoustic panels,46077
-moving supplies,46078
-tools hardware,16292
-safety,16249
-backsplashes wall panels,19121
-child safety,16257
-home safety,16256
-bags,16248
-books,16251
-games recreation,24847
-paper shop,25227
+category-id,category_url
+od003,https://www.ikea.com/ca/en/cat/outdoor-furniture-od003/
+21964,https://www.ikea.com/ca/en/cat/outdoor-dining-furniture-21964/
+21958,https://www.ikea.com/ca/en/cat/outdoor-organizing-21958/
+24898,https://www.ikea.com/ca/en/cat/grills-24898/
+21957,https://www.ikea.com/ca/en/cat/outdoor-flooring-21957/
+31787,https://www.ikea.com/ca/en/cat/outdoor-pots-plants-31787/
+17893,https://www.ikea.com/ca/en/cat/outdoor-cushions-17893/
+34204,https://www.ikea.com/ca/en/cat/outdoor-rugs-34204/
+10397,https://www.ikea.com/ca/en/cat/storage-shelves-units-10397/
+17887,https://www.ikea.com/ca/en/cat/umbrellas-gazebos-17887/
+17897,https://www.ikea.com/ca/en/cat/outdoor-lighting-17897/
+bm002,https://www.ikea.com/ca/en/cat/mattresses-bm002/
+bm003,https://www.ikea.com/ca/en/cat/beds-bm003/
+24825,https://www.ikea.com/ca/en/cat/mattress-bases-24825/
+10451,https://www.ikea.com/ca/en/cat/chests-of-drawers-10451/
+20656,https://www.ikea.com/ca/en/cat/nightstands-20656/
+19053,https://www.ikea.com/ca/en/cat/armoires-wardrobes-19053/
+35766,https://www.ikea.com/ca/en/cat/elvarli-system-35766/
+47394,https://www.ikea.com/ca/en/cat/boaxel-system-47394/
+20657,https://www.ikea.com/ca/en/cat/dressing-tables-20657/
+19064,https://www.ikea.com/ca/en/cat/headboards-19064/
+20533,https://www.ikea.com/ca/en/cat/pillows-20533/
+20529,https://www.ikea.com/ca/en/cat/duvets-20529/
+10680,https://www.ikea.com/ca/en/cat/duvet-cover-sets-10680/
+10681,https://www.ikea.com/ca/en/cat/sheets-10681/
+20719,https://www.ikea.com/ca/en/cat/sink-cabinets-20719/
+40690,https://www.ikea.com/ca/en/cat/showers-40690/
+20723,https://www.ikea.com/ca/en/cat/bathroom-sinks-20723/
+20724,https://www.ikea.com/ca/en/cat/faucets-20724/
+20490,https://www.ikea.com/ca/en/cat/bathroom-mirrors-20490/
+10555,https://www.ikea.com/ca/en/cat/bathroom-accessories-10555/
+10736,https://www.ikea.com/ca/en/cat/bathroom-lighting-10736/
+20802,https://www.ikea.com/ca/en/cat/bathroom-storage-20802/
+46079,https://www.ikea.com/ca/en/cat/bathroom-furniture-sets-46079/
+tl003,https://www.ikea.com/ca/en/cat/bathroom-textiles-tl003/
+20859,https://www.ikea.com/ca/en/cat/bathroom-stools-benches-20859/
+20719,https://www.ikea.com/ca/en/cat/sink-cabinets-20719/
+20519,https://www.ikea.com/ca/en/cat/bath-mats-20519/
+15287,https://www.ikea.com/ca/en/cat/godmorgon-series-15287/
+ka002,https://www.ikea.com/ca/en/cat/appliances-ka002/
+24254,https://www.ikea.com/ca/en/cat/kitchen-cabinets-fronts-24254/
+24255,https://www.ikea.com/ca/en/cat/kitchen-interior-organizers-24255/
+24264,https://www.ikea.com/ca/en/cat/kitchen-countertops-24264/
+24261,https://www.ikea.com/ca/en/cat/kitchen-faucets-sinks-24261/
+22957,https://www.ikea.com/ca/en/cat/modular-kitchens-22957/
+10471,https://www.ikea.com/ca/en/cat/kitchen-islands-carts-10471/
+16298,https://www.ikea.com/ca/en/cat/knobs-handles-16298/
+16282,https://www.ikea.com/ca/en/cat/kitchen-lighting-16282/
+20676,https://www.ikea.com/ca/en/cat/wall-storage-20676/
+19121,https://www.ikea.com/ca/en/cat/backsplashes-wall-panels-19121/
+16200,https://www.ikea.com/ca/en/cat/pantry-16200/
+18716,https://www.ikea.com/ca/en/cat/baby-toys-18716/
+45780,https://www.ikea.com/ca/en/cat/nursery-furniture-45780/
+18755,https://www.ikea.com/ca/en/cat/cribs-crib-mattresses-18755/
+45783,https://www.ikea.com/ca/en/cat/changing-tables-45783/
+18690,https://www.ikea.com/ca/en/cat/baby-textiles-18690/
+18695,https://www.ikea.com/ca/en/cat/baby-blankets-quilts-18695/
+18692,https://www.ikea.com/ca/en/cat/baby-bed-linen-18692/
+18700,https://www.ikea.com/ca/en/cat/baby-towels-washcloths-18700/
+18701,https://www.ikea.com/ca/en/cat/changing-bathing-potty-18701/
+31772,https://www.ikea.com/ca/en/cat/nursing-feeding-eating-31772/
+18767,https://www.ikea.com/ca/en/cat/kids-furniture-18767/
+18723,https://www.ikea.com/ca/en/cat/kids-beds-18723/
+18724,https://www.ikea.com/ca/en/cat/kids-mattresses-18724/
+18706,https://www.ikea.com/ca/en/cat/kids-storage-organization-18706/
+18734,https://www.ikea.com/ca/en/cat/toys-play-18734/
+18714,https://www.ikea.com/ca/en/cat/kids-kitchenware-tableware-18714/
+18730,https://www.ikea.com/ca/en/cat/kids-textiles-18730/
+18776,https://www.ikea.com/ca/en/cat/kids-bed-linen-18776/
+31773,https://www.ikea.com/ca/en/cat/kids-quilts-pillows-31773/
+18773,https://www.ikea.com/ca/en/cat/kids-lighting-18773/
+16257,https://www.ikea.com/ca/en/cat/child-safety-16257/
+kt003,https://www.ikea.com/ca/en/cat/cookware-kt003/
+20636,https://www.ikea.com/ca/en/cat/bakeware-20636/
+kt002,https://www.ikea.com/ca/en/cat/cooking-baking-supplies-kt002/
+20647,https://www.ikea.com/ca/en/cat/kitchen-utensils-20647/
+15934,https://www.ikea.com/ca/en/cat/knives-chopping-boards-15934/
+18860,https://www.ikea.com/ca/en/cat/dinnerware-18860/
+16043,https://www.ikea.com/ca/en/cat/serveware-16043/
+18865,https://www.ikea.com/ca/en/cat/cutlery-18865/
+18868,https://www.ikea.com/ca/en/cat/drinkware-18868/
+16044,https://www.ikea.com/ca/en/cat/coffee-tea-16044/
+15937,https://www.ikea.com/ca/en/cat/food-storage-organizing-15937/
+15938,https://www.ikea.com/ca/en/cat/dishwashing-accessories-15938/
+18850,https://www.ikea.com/ca/en/cat/kitchen-textiles-18850/
+20560,https://www.ikea.com/ca/en/cat/napkins-napkin-holders-20560/
+20538,https://www.ikea.com/ca/en/cat/table-linen-20538/
+10744,https://www.ikea.com/ca/en/cat/led-light-bulbs-10744/
+10731,https://www.ikea.com/ca/en/cat/floor-lamps-10731/
+10732,https://www.ikea.com/ca/en/cat/table-lamps-10732/
+20503,https://www.ikea.com/ca/en/cat/wall-lamps-20503/
+20502,https://www.ikea.com/ca/en/cat/work-lamps-20502/
+18750,https://www.ikea.com/ca/en/cat/ceiling-lights-18750/
+36812,https://www.ikea.com/ca/en/cat/smart-lighting-36812/
+14971,https://www.ikea.com/ca/en/cat/decorative-lighting-14971/
+16280,https://www.ikea.com/ca/en/cat/integrated-lighting-16280/
+17897,https://www.ikea.com/ca/en/cat/outdoor-lighting-17897/
+li002,https://www.ikea.com/ca/en/cat/light-fixtures-lamps-li002/
+10736,https://www.ikea.com/ca/en/cat/bathroom-lighting-10736/
+16282,https://www.ikea.com/ca/en/cat/kitchen-lighting-16282/
+16283,https://www.ikea.com/ca/en/cat/wardrobe-lighting-16283/
+he002,https://www.ikea.com/ca/en/cat/smart-home-he002/
+40842,https://www.ikea.com/ca/en/cat/speakers-40842/
+40845,https://www.ikea.com/ca/en/cat/cords-chargers-40845/
+40843,https://www.ikea.com/ca/en/cat/mobile-tablet-accessories-40843/
+st002,https://www.ikea.com/ca/en/cat/bookcases-shelving-units-st002/
+19053,https://www.ikea.com/ca/en/cat/armoires-wardrobes-19053/
+st005,https://www.ikea.com/ca/en/cat/clothes-organizers-st005/
+st005,https://www.ikea.com/ca/en/cat/clothes-organizers-st005/
+st004,https://www.ikea.com/ca/en/cat/dressers-storage-drawers-st004/
+fu005,https://www.ikea.com/ca/en/cat/kitchen-islands-carts-fu005/
+30454,https://www.ikea.com/ca/en/cat/sideboards-buffets-sofa-tables-30454/
+st007,https://www.ikea.com/ca/en/cat/small-storage-st007/
+16295,https://www.ikea.com/ca/en/cat/shopping-bags-tote-bags-16295/
+10475,https://www.ikea.com/ca/en/cat/tv-media-furniture-10475/
+10550,https://www.ikea.com/ca/en/cat/storage-boxes-baskets-10550/
+st006,https://www.ikea.com/ca/en/cat/wall-organization-st006/
+st003,https://www.ikea.com/ca/en/cat/display-storage-cabinets-st003/
+16274,https://www.ikea.com/ca/en/cat/hooks-hangers-16274/
+46052,https://www.ikea.com/ca/en/cat/storage-solution-systems-46052/
+46078,https://www.ikea.com/ca/en/cat/moving-supplies-46078/
+16248,https://www.ikea.com/ca/en/cat/bags-16248/
+20529,https://www.ikea.com/ca/en/cat/duvets-20529/
+10680,https://www.ikea.com/ca/en/cat/duvet-cover-sets-10680/
+20533,https://www.ikea.com/ca/en/cat/pillows-20533/
+18890,https://www.ikea.com/ca/en/cat/pillowcases-18890/
+10651,https://www.ikea.com/ca/en/cat/bedlinen-10651/
+20527,https://www.ikea.com/ca/en/cat/bedspreads-20527/
+24824,https://www.ikea.com/ca/en/cat/mattress-pillow-protectors-24824/
+18776,https://www.ikea.com/ca/en/cat/kids-bed-linen-18776/
+10681,https://www.ikea.com/ca/en/cat/sheets-10681/
+20528,https://www.ikea.com/ca/en/cat/blankets-throws-20528/
+20520,https://www.ikea.com/ca/en/cat/towels-20520/
+20519,https://www.ikea.com/ca/en/cat/bath-mats-20519/
+18690,https://www.ikea.com/ca/en/cat/baby-textiles-18690/
+18695,https://www.ikea.com/ca/en/cat/baby-blankets-quilts-18695/
+18692,https://www.ikea.com/ca/en/cat/baby-bed-linen-18692/
+18730,https://www.ikea.com/ca/en/cat/kids-textiles-18730/
+20528,https://www.ikea.com/ca/en/cat/blankets-throws-20528/
+tl002,https://www.ikea.com/ca/en/cat/curtains-blinds-tl002/
+10659,https://www.ikea.com/ca/en/cat/cushions-cushions-covers-10659/
+10653,https://www.ikea.com/ca/en/cat/rugs-10653/
+10760,https://www.ikea.com/ca/en/cat/candle-holders-candles-10760/
+42926,https://www.ikea.com/ca/en/cat/home-fragrance-42926/
+10759,https://www.ikea.com/ca/en/cat/clocks-10759/
+18746,https://www.ikea.com/ca/en/cat/picture-photo-frames-18746/
+10757,https://www.ikea.com/ca/en/cat/wall-decor-10757/
+24924,https://www.ikea.com/ca/en/cat/decorative-accessories-24924/
+20489,https://www.ikea.com/ca/en/cat/mirrors-20489/
+20542,https://www.ikea.com/ca/en/cat/chair-pads-20542/
+10655,https://www.ikea.com/ca/en/cat/fabrics-sewing-10655/
+pp001,https://www.ikea.com/ca/en/cat/pots-plants-pp001/
+10769,https://www.ikea.com/ca/en/cat/vases-bowls-10769/
+39569,https://www.ikea.com/ca/en/cat/cats-39569/
+39570,https://www.ikea.com/ca/en/cat/dogs-39570/

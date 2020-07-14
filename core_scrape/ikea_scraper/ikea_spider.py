@@ -29,7 +29,7 @@ class IkeaCategoriesSpider(scrapy.Spider):
             f.close()
 
         with open(categories_csv, 'w') as f:
-            f.write('category_urls\n')
+            f.write('category,category_id\n')
             f.close()
 
         # Appending the category list
@@ -38,7 +38,14 @@ class IkeaCategoriesSpider(scrapy.Spider):
             for product in product_list:
                 # since product is a tuple (list #, value), product[1] contains
                 # the category URL
-                f.write('{url}?page=99\n'.format(url=product[1]))
+                
+                category_url = product[1].strip('/').split('/')[-1]
+                category_id = category_url.split('-')[-1]
+
+                category_name = ' '.join(category_url.split('-')[:-1])
+
+                f.write('{name},{id}\n'.format(name=category_name, id=category_id))
+
 
             f.close()
 

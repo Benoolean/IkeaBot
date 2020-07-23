@@ -4,10 +4,13 @@ import logging
 import pandas as pd
 import urllib.request
 import json 
+
 from twisted.internet import reactor, defer
 from scrapy.crawler import CrawlerRunner
 from csv import reader
 from crawled_handler import removeDuplicates
+from google.cloud import bigquery
+
 
 categories_csv = 'crawled/ikea_categories.csv'
 products_csv = 'crawled/ikea_products.csv'
@@ -52,16 +55,18 @@ class IkeaCategoriesSpider(scrapy.Spider):
         # getting products
 
         for index, row in ikea_category_df.iterrows():
-            if index < 1:
-                product_search_url = 'https://sik.search.blue.cdtapps.com/ca/en/product-list-page/more-products?category={category_id}&start=0&end=99999999'
-                product_search_url = product_search_url.format(category_id=row['category_id'])
-                with urllib.request.urlopen(product_search_url) as req_data:
-                    data = json.loads(req_data.read().decode())
-                    df = pd.DataFrame.from_dict(data['moreProducts']['productWindow'])
+            product_search_url = 'https://sik.search.blue.cdtapps.com/ca/en/product-list-page/more-products?category={category_id}&start=0&end=99999999'
+            product_search_url = product_search_url.format(category_id=row['category_id'])
 
-                    print(df)
+            with urllib.request.urlopen(product_search_url) as req_data:
+                data = json.loads(req_data.read().decode())
+                df = pd.DataFrame.from_dict(data['moreProducts']['productWindow'])
+                df.to_gbq('ikea.products', chunksize=None, if_exists='append')
+                
+                print('Updated BigQuery data. Cateogory: {category_name}'.format(category_name=row['category_name']))
 
-logging.disable(20) # 20 is infomation logging
+logger = logging.getLogger()
+logger.setLevel(logging.INFO)
 
 runner = CrawlerRunner()
 @defer.inlineCallbacks

@@ -1,5 +1,5 @@
 const Discord = require("discord.js");
-const config = require("./config.json");
+const config = require("./authentication/config.json");
 const fs = require('fs');
 
 const prefix = config.prefix;

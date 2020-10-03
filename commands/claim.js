@@ -25,7 +25,7 @@ module.exports.run = async (bot, message, args) => {
         return;
     }
 
-    message.channel.send(':no_entry: Bots are not allowed to participate! :no_entry: ');
+    message.channel.send(':no_entry: Bots are not allowed to participate! :no_entry:');
 }
 
 

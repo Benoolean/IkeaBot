@@ -17,22 +17,6 @@ od003,Outdoor Furniture
 fu005,Kitchen Islands Carts
 46080,Room Dividers
 45780,Nursery Furniture
-od003,Outdoor Furniture
-21958,Outdoor Organizing
-24898,Grills
-21957,Outdoor Flooring
-31787,Outdoor Pots Plants
-17893,Outdoor Cushions
-34204,Outdoor Rugs
-17887,Umbrellas Gazebos
-17897,Outdoor Lighting
-34203,Outdoor Accessories
-14971,Decorative Lighting
-24898,Grills
-42924,Picnic Outdoor Recreation
-47432,Summer Decoration
-47429,Summer Party
-47431,Summer Textiles
 bm002,Mattresses
 bm003,Beds
 24825,Mattress Bases
@@ -42,17 +26,28 @@ bm003,Beds
 19059,Under Bed Storage
 tl004,Bedding
 24822,Bed Legs
-20719,Sink Cabinets
+fu003,Sofas
+fu006,Armchairs Chaise Lounges
+10663,Sofa Beds
+20926,Ottomans
+10705,Coffee Side Tables
+10382,Bookcases
+11465,Shelf Units
+11794,Besta System
+10475,Tv Media Furniture
+st003,Display Storage Cabinets
 40690,Showers
 20723,Bathroom Sinks
-20724,Faucets
+20724,Bathroom Taps Faucets
 20490,Bathroom Mirrors
 10555,Bathroom Accessories
 10736,Bathroom Lighting
-20802,Bathroom Storage
 46079,Bathroom Furniture Sets
 tl003,Bathroom Textiles
 20859,Bathroom Stools Benches
+ba002,Bathroom Storage
+ba003,Bathroom Laundry
+ka003,Kitchens
 ka002,Appliances
 24254,Kitchen Cabinets Fronts
 24255,Kitchen Interior Organizers
@@ -65,6 +60,15 @@ ka002,Appliances
 20676,Wall Storage
 19121,Backsplashes Wall Panels
 16200,Pantry
+20651,Desks For Home
+47069,Desks For Office
+47070,Gaming Desks
+20653,Desk Chairs For Home
+20654,Office Chairs
+10711,Drawer Units
+10385,Storage Cabinets
+16195,Cable Management Accessories
+20502,Work Lamps
 bc002,Baby
 bc003,Kids
 16257,Child Safety
@@ -82,6 +86,7 @@ kt002,Cooking Baking Supplies
 20560,Napkins Napkin Holders
 20538,Table Linen
 18714,Kids Kitchenware Tableware
+20636,Bakeware
 10744,Led Light Bulbs
 36812,Smart Lighting
 14971,Decorative Lighting
@@ -90,7 +95,6 @@ kt002,Cooking Baking Supplies
 li002,Light Fixtures Lamps
 st002,Bookcases Shelving Units
 19053,Armoires Wardrobes
-st005,Clothes Organizers
 st005,Clothes Organizers
 st004,Dressers Storage Drawers
 fu005,Kitchen Islands Carts
@@ -125,17 +129,27 @@ pp004,Flower Pots Stands
 25227,Paper Shop
 10550,Storage Boxes Baskets
 10574,Noticeboards
-39569,Cats
-39570,Dogs
 10653,Rugs
 20519,Bath Mats
 10698,Door Mats
 21957,Outdoor Flooring
-he002,Smart Home
 ka002,Appliances
 40845,Cords Chargers
 40842,Speakers
 40843,Mobile Tablet Accessories
+46194,Wi Fi Speakers
+36812,Smart Lighting
+44531,Smart Blinds
+od003,Outdoor Furniture
+21958,Outdoor Organizing
+24898,Grills
+21957,Outdoor Flooring
+31787,Outdoor Pots Plants
+17893,Outdoor Cushions
+34204,Outdoor Rugs
+17887,Umbrellas Gazebos
+17897,Outdoor Lighting
+34203,Outdoor Accessories
 pp004,Flower Pots Stands
 pp003,Plants Flowers
 20494,Plant Stands Movers
@@ -147,6 +161,9 @@ pp003,Plants Flowers
 16213,Bins Bags
 20609,Cleaning Accessories
 15938,Dishwashing Accessories
+48925,Laundry Cabinets Shelving
+39569,Cats
+39570,Dogs
 46192,Snacks On The Go
 25217,Meat
 25214,Fish Seafood
@@ -154,7 +171,6 @@ pp003,Plants Flowers
 25212,Bread Dairy
 25215,Pastries Desserts Cookies
 25216,Sauces Jam Condiments
-25218,Chocolates Sweets
 25211,Beverages
 16298,Knobs Handles
 42948,Oils Stains Product Care

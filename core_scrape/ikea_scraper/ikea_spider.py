@@ -66,7 +66,6 @@ class IkeaCategoriesSpider(scrapy.Spider):
                 print('Updated BigQuery data. Cateogory: {category_name}'.format(category_name=row['category_name']))
 
 logger = logging.getLogger()
-logger.setLevel(logging.INFO)
 
 runner = CrawlerRunner()
 @defer.inlineCallbacks

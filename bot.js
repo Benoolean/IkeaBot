@@ -1,42 +1,47 @@
-require("dotenv").config();
-
-const fs = require('fs');
 const Discord = require("discord.js");
 const config = require("./config.json");
-const bot = new Discord.Client();
-const command_prefix = config.prefix;
+const fs = require('fs');
 
-// Command init
+const prefix = config.prefix;
+const bot = new Discord.Client();
+
 bot.commands = new Discord.Collection();
 
-const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
+fs.readdir('./commands/', (err, files) => {
+    if (err)
+        console.log(err);
 
-for (const file of commandFiles) {
-	const command = require(`./commands/${file}`);
-	bot.commands.set(command.name, command);
-}
+    let command_files = files.filter(f => f.split('.').pop() === 'js');
+    if (command_files <= 0) {
+        console.log('No command files found.');
+    }
+
+    console.log('Loading ' + command_files.length + ' commands.');
+    
+    command_files.forEach((command, idx) => {
+        let file = require('./commands/' + command);
+        bot.commands.set(file.description.name, file);
+        console.log('Command file ['+ (idx + 1) +'] ' + command + ' has been loaded');
+    });
+})
 
 // bot login with auth token
 bot.login(config.token);
 
 // ready status function
 bot.on("ready", () => {
-    console.info('Logged in as' + bot.user.tag + '!');
+    console.info('Logged in as ' + bot.user.tag + '!');
 });
 
-// messaging center
-bot.on("message", msg => {
-    if (!msg.content.startsWith(command_prefix) || msg.author.bot) 
-        return;
+bot.on('message', message => {
+    if (message.author.bot) return;
+    
+    let messageArray = message.content.split(/\s+/g);
+    let command = messageArray[0];
+    let args = messageArray.slice(1);
 
-    if (msg.content.startsWith(command_prefix)){
-        command = msg.content.substring(1).toLowerCase();
-
-        if (command == "start") {
-            bot.commands.get('ikea').execute(msg);
-        }
-        else if (command == "claim") {
-            
-        }
-    }
-});
+    if (!command.startsWith(prefix)) return;
+    
+    let command_module = bot.commands.get(command.slice(prefix.length));
+    if (command_module) command_module.run(bot, message, args);
+})

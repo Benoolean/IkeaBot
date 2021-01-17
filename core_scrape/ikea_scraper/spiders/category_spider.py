@@ -7,15 +7,24 @@ import json
 
 from twisted.internet import reactor, defer
 from scrapy.crawler import CrawlerRunner
+from scrapy.utils.log import configure_logging 
 from csv import reader
-from crawled_handler import removeDuplicates
 from google.cloud import bigquery
+
+from product_spider import IkeaProductsSpider
 
 
 categories_csv = 'crawled/ikea_categories.csv'
 products_csv = 'crawled/ikea_products.csv'
 
 class IkeaCategoriesSpider(scrapy.Spider):
+    configure_logging(install_root_handler=False)
+    logging.basicConfig(
+        filename='log.txt',
+        format='%(levelname)s: %(message)s',
+        level=logging.INFO
+    )
+
     name = 'ikea_categories'
 
     def start_requests(self):
@@ -50,22 +59,14 @@ class IkeaCategoriesSpider(scrapy.Spider):
         ikea_category_df = pd.DataFrame(data=ikea_category_df_data, dtype=str)
         ikea_category_df.to_csv(categories_csv, encoding='utf-8', index=False)
 
-        print('[CONSOLE]: Crawled categories and exported CSV files')
+        print('Categories completed. Starting product crawl.')
 
-        # getting products
+        product_spider = IkeaProductsSpider(products_csv)
+        product_spider.crawl_products()
 
-        for index, row in ikea_category_df.iterrows():
-            product_search_url = 'https://sik.search.blue.cdtapps.com/ca/en/product-list-page/more-products?category={category_id}&start=0&end=99999999'
-            product_search_url = product_search_url.format(category_id=row['category_id'])
+        if not product_spider.completed:
+            print('Unable to complete product crawl.')
 
-            with urllib.request.urlopen(product_search_url) as req_data:
-                data = json.loads(req_data.read().decode())
-                df = pd.DataFrame.from_dict(data['moreProducts']['productWindow'])
-                df.to_gbq('ikea.products', chunksize=None, if_exists='append')
-                
-                print('Updated BigQuery data. Cateogory: {category_name}'.format(category_name=row['category_name']))
-
-logger = logging.getLogger()
 
 runner = CrawlerRunner()
 @defer.inlineCallbacks
